@@ -132,8 +132,17 @@ exports.config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
-    reporters: ['spec'],
+    //reporters: ['spec'],
 
+    reporters: [
+        'dot',
+        ['json',{
+          outputDir: './Results',
+          outputFileFormat: function(opts) {
+              return `results-${opts.cid}.${opts.capabilities}.json`
+          }
+        }]
+      ],
 
     
     //
