@@ -136,10 +136,14 @@ exports.config = {
 
     reporters: [
         ['allure', {
-            outputDir: 'allure-results', 
+            outputDir: './allure-results', 
             disableWebdriverStepsReporting: true,
             disableWebdriverScreenshotsReporting: false,
-        }]
+            outputFileFormat: function(options){
+              return `results-${new Date().getTime()}.xml`;
+            },
+        },
+        ],
       ],
 
     
